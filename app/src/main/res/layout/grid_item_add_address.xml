@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="@dimen/nano_dimen"
+    app:cardCornerRadius="@dimen/micro_dimen"
+    app:cardBackgroundColor="@color/colorAccent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/micro_dimen"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <ImageView
+            android:src="@drawable/ic_add"
+            android:layout_width="@dimen/add_icon_size"
+            android:layout_height="@dimen/add_icon_size" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

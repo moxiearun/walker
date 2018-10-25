@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="@dimen/nano_dimen"
+    app:cardCornerRadius="@dimen/micro_dimen"
+    app:cardBackgroundColor="@color/colorAccent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/micro_dimen"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/addressNameView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/large_font"
+            android:layout_margin="@dimen/medium_dimen"/>
+
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/medium_font"
+            android:textColor="@color/colorAccent"
+            android:layout_marginStart="@dimen/medium_dimen"
+            android:layout_marginEnd="@dimen/medium_dimen"
+            android:text="T2, Holy Oak Apartment, Sowripalayam, Coimabatore"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
