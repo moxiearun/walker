@@ -1,13 +1,14 @@
-package com.example.mukesh.walker
+package com.example.mukesh.walker.addresslist
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.example.mukesh.walker.R
+import com.example.mukesh.walker.base.BaseActivity
 
 import kotlinx.android.synthetic.main.activity_address_list.*
-class AddressListActivity : AppCompatActivity() {
+
+class AddressListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,8 +16,7 @@ class AddressListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            showSnackBarMessage(view, R.string.app_name)
         }
     }
 

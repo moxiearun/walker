@@ -1,3 +1,16 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="nano_dimen">2dp</dimen>
+    <dimen name="micro_dimen">4dp</dimen>
+    <dimen name="small_dimen">8dp</dimen>
+    <dimen name="medium_dimen">12dp</dimen>
+    <dimen name="large_dimen">16dp</dimen>
+
+    <!-- font sizes -->
+    <dimen name="micro_font">4dp</dimen>
+    <dimen name="small_font">8dp</dimen>
+    <dimen name="medium_font">12dp</dimen>
+    <dimen name="large_font">16dp</dimen>
+
 </resources>
