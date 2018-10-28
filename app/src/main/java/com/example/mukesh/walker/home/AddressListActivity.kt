@@ -11,7 +11,7 @@ import android.view.MenuItem
 import com.example.mukesh.walker.R
 import com.example.mukesh.walker.addaddress.AddAddressActivity
 import com.example.mukesh.walker.base.BaseActivity
-import com.example.mukesh.walker.datamodels.Address
+import com.example.mukesh.walker.datamodels.Location
 import com.example.mukesh.walker.navigations.MapsActivity
 
 import kotlinx.android.synthetic.main.activity_address_list.*
@@ -31,11 +31,10 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
         addressListViewModel = ViewModelProviders.of(this).get(AddressListViewModel::class.java)
 
         initViews()
-        initObservers(addressListViewModel)
+        initObservers()
         fab.setOnClickListener {
             gotoMapScreen()
         }
-        addressListViewModel.loadMockData()
     }
 
     private fun initViews() {
@@ -43,13 +42,13 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
         addressListView.adapter = addressGridAdapter
     }
 
-    private fun initObservers(viewModel: AddressListViewModel) {
-        val addressListObserver = Observer<List<Address>> { addressList ->
+    private fun initObservers() {
+        val addressListObserver = Observer<List<Location>> { addressList ->
             // Update the UI, in this case, a TextView.
-            addressGridAdapter.addressList = addressList!!.toList()
+            addressGridAdapter.locationList = addressList!!.toList()
             addressGridAdapter.notifyDataSetChanged()
         }
-        viewModel.addressList.observe(this, addressListObserver)
+        addressListViewModel.locationList.observe(this, addressListObserver)
     }
 
     private fun gotoMapScreen() {
@@ -80,8 +79,8 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK && requestCode == ADD_ADDRESS_REQEUST) {
-            val selectedName: String = data!!.getStringExtra("address_key")
-            addressListViewModel.addNewAddress(selectedName)
+            val selectedLocation: Location = data!!.getParcelableExtra(AddAddressActivity.KEY_ADDRESS)
+            addressListViewModel.addNewAddress(selectedLocation)
         }
     }
 }

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mukesh.walker.R
-import com.example.mukesh.walker.datamodels.Address
+import com.example.mukesh.walker.datamodels.Location
 import kotlinx.android.synthetic.main.grid_item_address.view.*
 
 class AddressGridAdapter(private val addAddressListener: AddAdddressListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -13,7 +13,7 @@ class AddressGridAdapter(private val addAddressListener: AddAdddressListener) : 
     val ADDRESS_VIEW_TYPE: Int = 1
     val ADD_ADDRESS_VIEW_TYPE: Int = 2
 
-    var addressList: List<Address> = ArrayList()
+    var locationList: List<Location> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val viewResId: Int =
@@ -24,20 +24,20 @@ class AddressGridAdapter(private val addAddressListener: AddAdddressListener) : 
     }
 
     override fun getItemViewType(position: Int): Int =
-            if (addressList?.size == position) ADD_ADDRESS_VIEW_TYPE else ADDRESS_VIEW_TYPE
+            if (locationList?.size == position) ADD_ADDRESS_VIEW_TYPE else ADDRESS_VIEW_TYPE
 
-    override fun getItemCount(): Int = addressList?.size + 1 ?: 1
+    override fun getItemCount(): Int = locationList?.size + 1 ?: 1
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-        (holder as? AddressListViewHolder)?.bindView(addressList[position])
+        (holder as? AddressListViewHolder)?.bindView(locationList[position])
     }
 
 
     class AddressListViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bindView(address: Address) {
-            view.addressNameView.text = address.name
-//            view.addressTextView.setText("")
+        fun bindView(location: Location) {
+            view.addressNameView.text = location.name
+            view.addressTextView.text = location.address
         }
     }
 

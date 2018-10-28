@@ -19,7 +19,8 @@
             android:id="@+id/addressNameView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="@dimen/large_font"
@@ -32,8 +33,7 @@
             android:textSize="@dimen/medium_font"
             android:textColor="@color/colorAccent"
             android:layout_marginStart="@dimen/medium_dimen"
-            android:layout_marginEnd="@dimen/medium_dimen"
-            android:text="T2, Holy Oak Apartment, Sowripalayam, Coimabatore"/>
+            android:layout_marginEnd="@dimen/medium_dimen"/>
 
     </LinearLayout>
 

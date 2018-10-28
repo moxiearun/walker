@@ -11,4 +11,8 @@ open class BaseActivity : AppCompatActivity() {
         Snackbar.make(view, messageResId, Snackbar.LENGTH_LONG).show()
     }
 
+    fun showSnackBarMessage(view : View, message : String) {
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
+    }
+
 }
