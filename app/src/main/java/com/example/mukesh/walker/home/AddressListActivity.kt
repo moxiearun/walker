@@ -1,5 +1,6 @@
 package com.example.mukesh.walker.home
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
@@ -8,6 +9,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.example.mukesh.walker.R
+import com.example.mukesh.walker.addaddress.AddAddressActivity
 import com.example.mukesh.walker.base.BaseActivity
 import com.example.mukesh.walker.datamodels.Address
 import com.example.mukesh.walker.navigations.MapsActivity
@@ -15,9 +17,10 @@ import com.example.mukesh.walker.navigations.MapsActivity
 import kotlinx.android.synthetic.main.activity_address_list.*
 import kotlinx.android.synthetic.main.content_address_list.*
 
-class AddressListActivity : BaseActivity() {
+class AddressListActivity : BaseActivity(), AddAdddressListener {
 
-    private val addressGridAdapter: AddressGridAdapter = AddressGridAdapter()
+    private val ADD_ADDRESS_REQEUST = 100
+    private val addressGridAdapter: AddressGridAdapter = AddressGridAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +69,17 @@ class AddressListActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onAddAddressClick() {
+        val addAddressIntent = Intent(this, AddAddressActivity::class.java)
+        startActivityForResult(addAddressIntent, ADD_ADDRESS_REQEUST)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == ADD_ADDRESS_REQEUST) {
+
         }
     }
 }

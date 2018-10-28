@@ -8,7 +8,7 @@ import com.example.mukesh.walker.R
 import com.example.mukesh.walker.datamodels.Address
 import kotlinx.android.synthetic.main.grid_item_address.view.*
 
-class AddressGridAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AddressGridAdapter(private val addAddressListener: AddAdddressListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val ADDRESS_VIEW_TYPE: Int = 1
     val ADD_ADDRESS_VIEW_TYPE: Int = 2
@@ -20,7 +20,7 @@ class AddressGridAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 if (viewType == ADDRESS_VIEW_TYPE) R.layout.grid_item_address else R.layout.grid_item_add_address
         val gridView: View = LayoutInflater.from(parent!!.context)
                 .inflate(viewResId, parent, false)
-        return if (viewType == ADDRESS_VIEW_TYPE) AddressListViewHolder(gridView) else AddAddressViewHolder(gridView)
+        return if (viewType == ADDRESS_VIEW_TYPE) AddressListViewHolder(gridView) else AddAddressViewHolder(gridView, addAddressListener)
     }
 
     override fun getItemViewType(position: Int): Int =
@@ -41,10 +41,10 @@ class AddressGridAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    class AddAddressViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class AddAddressViewHolder(val view: View, private val listener: AddAdddressListener) : RecyclerView.ViewHolder(view) {
 
-        fun bindView() {
-
+        init {
+            view.setOnClickListener { listener.onAddAddressClick() }
         }
 
     }

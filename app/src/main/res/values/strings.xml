@@ -2,5 +2,8 @@
     <string name="app_name">Walker</string>
     <string name="action_settings">Settings</string>
     <string name="welcome_message">Hello, Hameed!</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Walker</string>
+    <string name="title_add_address">Add address</string>
+    <string name="name_of_the_address">Name of the address</string>
+    <string name="add_address">Add address</string>
 </resources>
