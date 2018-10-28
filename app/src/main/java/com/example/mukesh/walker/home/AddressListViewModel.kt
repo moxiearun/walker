@@ -8,12 +8,18 @@ import com.example.mukesh.walker.datamodels.Address
 class AddressListViewModel(application: Application) : BaseViewModel(application) {
 
     var addressList: MutableLiveData<List<Address>> = MutableLiveData()
-
+    private lateinit var addresses: ArrayList<Address>
     //    Todo(Arun A) : Remove once the actual implementation done
     fun loadMockData() {
-        var addresses: List<Address> = ArrayList()
-        addresses = listOf(Address(1, "Home"), Address(2, "Laughing club"),
-                Address(3, "Meeting point"))
+        addresses = ArrayList()
+        addresses.add(Address(1, "Home"))
+        addresses.add(Address(2, "Laughing club"))
+        addresses.add(Address(3, "Meeting point"))
+        addressList.value = addresses
+    }
+
+    fun addNewAddress(newAddress: String) {
+        addresses.add(Address(4, newAddress))
         addressList.value = addresses
     }
 

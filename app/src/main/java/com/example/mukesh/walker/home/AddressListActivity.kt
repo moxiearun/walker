@@ -21,13 +21,14 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
 
     private val ADD_ADDRESS_REQEUST = 100
     private val addressGridAdapter: AddressGridAdapter = AddressGridAdapter(this)
+    lateinit var addressListViewModel: AddressListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address_list)
         setSupportActionBar(toolbar)
-        val addressListViewModel: AddressListViewModel =
-                ViewModelProviders.of(this).get(AddressListViewModel::class.java)
+
+        addressListViewModel = ViewModelProviders.of(this).get(AddressListViewModel::class.java)
 
         initViews()
         initObservers(addressListViewModel)
@@ -79,7 +80,8 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK && requestCode == ADD_ADDRESS_REQEUST) {
-
+            val selectedName: String = data!!.getStringExtra("address_key")
+            addressListViewModel.addNewAddress(selectedName)
         }
     }
 }
