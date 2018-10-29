@@ -14,6 +14,7 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.location.places.Place
 import com.google.android.gms.location.places.ui.PlaceAutocomplete
 import kotlinx.android.synthetic.main.activity_add_address.*
+import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class AddAddressActivity : BaseActivity() {
 
@@ -29,6 +30,7 @@ class AddAddressActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_address)
         addAddressViewModel = ViewModelProviders.of(this).get(AddAddressViewModel::class.java)
+        setSupportActionBar(toolbar)
         initViews()
         initObservers()
     }

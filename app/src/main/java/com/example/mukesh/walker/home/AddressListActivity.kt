@@ -16,6 +16,7 @@ import com.example.mukesh.walker.navigations.MapsActivity
 
 import kotlinx.android.synthetic.main.activity_address_list.*
 import kotlinx.android.synthetic.main.content_address_list.*
+import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class AddressListActivity : BaseActivity(), AddAdddressListener {
 
@@ -47,7 +48,6 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
 
     private fun initObservers() {
         val addressListObserver = Observer<List<Location>> { addressList ->
-            // Update the UI, in this case, a TextView.
             addressGridAdapter.locationList = addressList!!.toList()
             addressGridAdapter.notifyDataSetChanged()
         }
