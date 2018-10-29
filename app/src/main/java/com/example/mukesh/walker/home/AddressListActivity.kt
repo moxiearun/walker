@@ -33,7 +33,10 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
         initViews()
         initObservers()
         fab.setOnClickListener {
-            gotoMapScreen()
+            if (addressListViewModel.hasMinimumAddressCount())
+                gotoMapScreen()
+            else
+                showSnackBarMessage(fab, getString(R.string.minimum_alert))
         }
     }
 
@@ -53,6 +56,8 @@ class AddressListActivity : BaseActivity(), AddAdddressListener {
 
     private fun gotoMapScreen() {
         val mapIntent = Intent(this, MapsActivity::class.java)
+        mapIntent.putParcelableArrayListExtra(
+                MapsActivity.KEY_LOCATIONS, addressListViewModel.getLocationList())
         startActivity(mapIntent)
     }
 

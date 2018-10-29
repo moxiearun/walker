@@ -9,4 +9,5 @@
     <string name="no_play_services_available">Play services available</string>
     <string name="google_maps_key" translatable="false">AIzaSyCvUaG1rN1EjyNk9AuN9n37MnQXk49kAbc</string>
     <string name="save">Save</string>
+    <string name="minimum_alert">Minimum 2 address need to show navigation</string>
 </resources>

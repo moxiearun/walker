@@ -15,4 +15,12 @@ class AddressListViewModel(application: Application) : BaseViewModel(application
         locationList.value = locations
     }
 
+    fun hasMinimumAddressCount(): Boolean {
+        return locations.size > 1
+    }
+
+    fun getLocationList(): ArrayList<Location> {
+        return locations
+    }
+
 }
